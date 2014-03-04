@@ -1,3 +1,17 @@
+<?php
+
+if ($_POST) {
+    if ($_POST['email'] != '') {
+        $koneksidb = new PDO('mysql:host=localhost;dbname=kota-kecamatan', 'root', 'SpiD3r');
+
+        $query = "INSERT INTO pengguna (email) VALUES ('{$_POST['email']}')";
+        $koneksidb->exec($query);
+
+        $berhasil = "Registrasi berhasil dilakukan. Email {$_POST['email']} berhasil disimpan di database";
+    }
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -30,11 +44,13 @@
 
     <div class="container">
 
-      <form class="form-signin" role="form" action="daftar.php" method="get">
+      <form class="form-signin" role="form" action="daftar.php" method="post">
         <h2 class="form-signin-heading">Registrasi</h2>
         <input name="email" type="email" class="form-control" placeholder="Email address" required autofocus>
         <button class="btn btn-lg btn-primary btn-block" type="submit">Register</button>
       </form>
+
+      <?php if ($berhasil != '') echo $berhasil; ?>
 
     </div> <!-- /container -->
 
