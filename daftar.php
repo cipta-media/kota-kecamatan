@@ -30,7 +30,7 @@
 
     <div class="container">
 
-      <form class="form-signin" role="form">
+      <form class="form-signin" role="form" action="daftar.php" method="get">
         <h2 class="form-signin-heading">Registrasi</h2>
         <input type="email" class="form-control" placeholder="Email address" required autofocus>
         <button class="btn btn-lg btn-primary btn-block" type="submit">Register</button>
