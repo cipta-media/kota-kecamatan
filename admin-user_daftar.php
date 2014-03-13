@@ -1,17 +1,7 @@
 <?php
-
-if ($_POST) {
-    if ($_POST['email'] != '') {
-        $koneksidb = new PDO('mysql:host=localhost;dbname=kota-kecamatan', 'root', 'feelalive');
-
-        $query = "INSERT INTO pengguna (email) VALUES ('{$_POST['email']}')";
-        $koneksidb->exec($query);
-
-        $berhasil = "Registrasi berhasil dilakukan. Email {$_POST['email']} berhasil disimpan di database";
-    }
-}
-
-?>
+    $koneksidb = new PDO('mysql:host=localhost;dbname=kota-kecamatan', 'root', 'feelalive');
+    $sql = 'select * from pengguna' ;
+?> 
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -40,23 +30,38 @@ if ($_POST) {
     <![endif]-->
   </head>
 
-  <body>
 
-    <div class="container">
-
-      <form class="form-signin" role="form" action="daftar.php" method="post">
-        <h2 class="form-signin-heading">Registrasi</h2>
-        <input name="email" type="email" class="form-control" placeholder="Email address" required autofocus>
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Register</button>
-      </form>
-
-      <?php if ($berhasil != '') echo $berhasil; ?>
-
-    </div> <!-- /container -->
-
-
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
+   <body>
+<div class="table-responsive">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Username</th>
+                  <th>Email</th>
+                  <th>Nama</th>
+                  <th>Aktif</th>
+                </tr>
+              </thead>
+              <tbody>
+<?php
+foreach($koneksidb->query($sql) as $baris) {
+?>
+                <tr>
+                  <td></td>
+                  <td><?php echo $baris['username'] ?></td>
+                  <td><?php echo $baris['email'] ?></td>
+                  <td><?php echo $baris['nama'] ?></td>
+                  <td><?php echo $baris['aktif'] ?></td>
+                </tr>
+<?php
+}
+?>
+              </tbody>
+            </table>
+          </div>
+    
   </body>
 </html>
+  
+    
