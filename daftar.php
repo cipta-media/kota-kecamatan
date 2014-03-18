@@ -4,10 +4,20 @@ require_once('konfigurasi.php');
 
 if ($_POST) {
     if ($_POST['email'] != '') {
-        $query = "INSERT INTO pengguna (email) VALUES ('{$_POST['email']}')";
+        $ip = $_SERVER["REMOTE_ADDR"];
+        $query = "INSERT INTO pengguna (nama, username, password, email, alamat, remote_ip) VALUES ('{$_POST['nama']}', '{$_POST['username']}',
+        '{$_POST['password']}', '{$_POST['email']}', '$ip')";
         $koneksidb->exec($query);
 
-        $berhasil = "Registrasi berhasil dilakukan. Email {$_POST['email']} berhasil disimpan di database";
+        $berhasil = "Registrasi berhasil dilakukan. Email konfirmasi telah dikirim kepada {$_POST['email']} \n silahkan konfirmasi email anda";
+        
+        $to = "{$_POST['email']}";
+	$subject = "Lengkapi pendaftaran anda! ";
+	$message = "";
+	$from = "kotakecamatan@gmail.com";
+	$headers = "From:" . $from;
+	mail($to, $subject, $message, $headers);
+	
     }
 }
 
