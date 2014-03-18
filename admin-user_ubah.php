@@ -1,21 +1,25 @@
-<!DOCTYPE html>
 <?php
-    $koneksidb = new PDO('mysql:host=localhost;dbname=kota-kecamatan', 'root', 'lupalagi');
-    if ($_POST) {
-      $updatesql = "UPDATE pengguna
-        SET
-          nama = '{$_POST['nama']}',
-          email = '{$_POST['email']}'
-        WHERE id = '{$_POST['uid']}'";
-      $koneksidb->exec($updatesql);
-      header('Location: admin-user_daftar.php');
-    }
-    $sql = 'select * from pengguna where id = ' . $_GET['uid'];
-    foreach ($koneksidb->query($sql) as $baris) {
-      $email = $baris['email'];
-      $nama = $baris['nama'];
-    }
-?> 
+
+require_once('konfigurasi.php');
+
+if ($_POST) {
+    $updatesql = "UPDATE pengguna
+    SET
+        nama = '{$_POST['nama']}',
+        email = '{$_POST['email']}'
+    WHERE id = '{$_POST['uid']}'";
+    $koneksidb->exec($updatesql);
+    header('Location: admin-user_daftar.php');
+}
+
+$sql = 'select * from pengguna where id = ' . $_GET['uid'];
+foreach ($koneksidb->query($sql) as $baris) {
+    $email = $baris['email'];
+    $nama = $baris['nama'];
+}
+
+?>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -46,7 +50,7 @@
       <form class="form-signin" method="POST" action="admin-user_ubah.php">
         <input type="hidden" name="uid" value="<?php echo $_GET['uid']; ?>">
         <h2 class="form-signin-heading">Register</h2>
-        
+
 	   <input type="text" name="nama" class="form-control" placeholder="Nama" autofocus value="<?php echo $nama; ?>"><br>
 	   <input type="text" name="email" class="form-control" placeholder="Email address" autofocus value="<?php echo $email; ?>"><br>
 	   <button class="btn btn-lg btn-primary btn-block" type="submit">Simpan</button>

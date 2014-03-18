@@ -1,7 +1,8 @@
 <?php
-    $koneksidb = new PDO('mysql:host=localhost;dbname=kota-kecamatan', 'root', 'lupalagi');
-    $sql = 'select * from pengguna order by email asc' ;
-?> 
+require_once('konfigurasi.php');
+
+$sql = 'select * from pengguna order by email asc' ;
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -64,8 +65,7 @@ foreach($koneksidb->query($sql) as $baris) {
               </tbody>
             </table>
           </div>
-    
+
   </body>
 </html>
-  
-    
+
