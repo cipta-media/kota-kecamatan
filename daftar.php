@@ -1,9 +1,9 @@
 <?php
 
+require_once('konfigurasi.php');
+
 if ($_POST) {
     if ($_POST['email'] != '') {
-        $koneksidb = new PDO('mysql:host=localhost;dbname=kota-kecamatan', 'root', 'feelalive');
-
         $query = "INSERT INTO pengguna (email) VALUES ('{$_POST['email']}')";
         $koneksidb->exec($query);
 

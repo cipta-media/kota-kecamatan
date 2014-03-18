@@ -1,7 +1,8 @@
 <?php
-    $koneksidb = new PDO('mysql:host=localhost;dbname=kota-kecamatan', 'root', 'feelalive');
-    $sql = 'select * from pengguna' ;
-?> 
+require_once('konfigurasi.php');
+
+$sql = 'select * from pengguna order by email asc' ;
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -19,6 +20,7 @@
 
     <!-- Custom styles for this template -->
     <link href="css/signin.css" rel="stylesheet">
+  	<link href="css/font-awesome.min.css" rel="stylesheet">
 
     <!-- Just for debugging purposes. Don't actually copy this line! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
@@ -41,6 +43,7 @@
                   <th>Email</th>
                   <th>Nama</th>
                   <th>Aktif</th>
+                  <th>Aksi</th>
                 </tr>
               </thead>
               <tbody>
@@ -53,6 +56,8 @@ foreach($koneksidb->query($sql) as $baris) {
                   <td><?php echo $baris['email'] ?></td>
                   <td><?php echo $baris['nama'] ?></td>
                   <td><?php echo $baris['aktif'] ?></td>
+                  <td><a href="admin-user_ubah.php?uid=<?php print $baris['id']; ?>"><i class="fa fa-pencil"></i></a></td>
+
                 </tr>
 <?php
 }
@@ -60,8 +65,7 @@ foreach($koneksidb->query($sql) as $baris) {
               </tbody>
             </table>
           </div>
-    
+
   </body>
 </html>
-  
-    
+
