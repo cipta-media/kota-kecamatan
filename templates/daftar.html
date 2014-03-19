@@ -2,69 +2,56 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="shortcut icon" href="../../assets/ico/favicon.png">
+    <link rel="shortcut icon" href="../../assets/ico/favicon.ico">
 
-    <title>Register</title>
+    <title>Daftar</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="css/signin.css" rel="stylesheet">
+    <link href="../css/bootstrap.css" rel="stylesheet">
+    <link href="../css/signin.css" rel="stylesheet">
+    <!-- Just for debugging purposes. Don't actually copy this line! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
-      <script src="../../assets/js/html5shiv.js"></script>
-      <script src="../../assets/js/respond.min.js"></script>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+  	<style>
+		body { 
+		  background: url(1.jpg) no-repeat center center fixed; 
+		  -webkit-background-size: cover;
+		  -moz-background-size: cover;
+		  -o-background-size: cover;
+		  background-size: cover;
+		 }
+		 .well {
+		    background-color: rgba(245, 245, 245, 0.4);
+		 }
+	</style>
   </head>
-
-  <body>
-
-    <div class="container">
-
-      <form class="form-signin">
-        <h2 class="form-signin-heading">Register</h2>
-        
-	   <input type="text" class="form-control" placeholder="Nama" autofocus><br>
-	  <input type="text" class="form-control" placeholder="Email address" autofocus><br>
-	<input type="password" class="form-control" placeholder="Password">
-         <fieldset>
-                 <label>Birthday</label>
-                  <label class="month"> 
-                  <select class="select-style" name="BirthMonth">
-                  <option value="">Month</option>
-                  <option  value="01">January</option>
-                  <option value="02">February</option>
-                  <option value="03" >March</option>
-                  <option value="04">April</option>
-                  <option value="05">May</option>
-                  <option value="06">June</option>
-                  <option value="07">July</option>
-                  <option value="08">August</option>
-                  <option value="09">September</option>
-                  <option value="10">October</option>
-                  <option value="11">November</option>
-                  <option value="12" >December</option>
-                  </label>
-                 </select>    
-              </fieldset>
-  
-        <label class="checkbox">
-	    <input type="checkbox" value=""> Laki - Laki<br>
-	      <input type="checkbox" value=""> Perempuan
-	    </label>
-
-	<button class="btn btn-lg btn-primary btn-block" type="submit">Sign up</button>
-      </form>
-  </div> <!-- /container -->
-
-
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-  </body>
+      <body>   
+	<div class="col-lg-6">
+	  <div class="well">
+	    <form class="form-horizontal">
+	      <legend align="center">Daftar</legend>	      
+		<div >
+		  <input type="text" name="nama" class="form-control" placeholder="Nama" autofocus><br>
+		  <input type="text" name="username" class="form-control" placeholder="Username" autofocus><br>
+		  <input type="text" name="email" class="form-control" placeholder="Email" autofocus><br>
+		  <input type="password" name="password" class="form-control" placeholder="Password"><br>
+		  <textarea id="textArea" name="alamat" class="form-control" rows="3" placeholder="Alamat"></textarea><br>
+		</div>
+	      <button class="btn btn-lg btn-primary btn-block" type="submit">Daftar</button>
+	    </form>
+	  </div>
+	</div>
+    </body>
 </html>
