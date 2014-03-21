@@ -11,11 +11,10 @@
     <title>Daftar</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="../css/bootstrap.css" rel="stylesheet">
-    <link href="../css/signin.css" rel="stylesheet">
+    <link href="css/signin.css" rel="stylesheet">
     <!-- Just for debugging purposes. Don't actually copy this line! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
 
@@ -25,8 +24,8 @@
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
   	<style>
-		body { 
-		  background: url(1.jpg) no-repeat center center fixed; 
+		body {
+		  background: url("images/1.jpg") no-repeat center center fixed;
 		  -webkit-background-size: cover;
 		  -moz-background-size: cover;
 		  -o-background-size: cover;
@@ -37,21 +36,21 @@
 		 }
 	</style>
   </head>
-      <body>   
-	<div class="col-lg-6">
-	  <div class="well">
-	    <form class="form-horizontal">
-	      <legend align="center">Daftar</legend>	      
-		<div >
-		  <input type="text" name="nama" class="form-control" placeholder="Nama" autofocus><br>
-		  <input type="text" name="username" class="form-control" placeholder="Username" autofocus><br>
-		  <input type="text" name="email" class="form-control" placeholder="Email" autofocus><br>
-		  <input type="password" name="password" class="form-control" placeholder="Password"><br>
-		  <textarea id="textArea" name="alamat" class="form-control" rows="3" placeholder="Alamat"></textarea><br>
-		</div>
-	      <button class="btn btn-lg btn-primary btn-block" type="submit">Daftar</button>
-	    </form>
-	  </div>
-	</div>
-    </body>
+<body>
+    <div class="col-lg-6">
+        <div class="well">
+            <form class="form-horizontal" method="post" action="daftar.php">
+                <legend align="center">Daftar</legend>
+                <div>
+                    <input type="text" name="nama" class="form-control" placeholder="Nama" autofocus><br>
+                    <input type="text" name="username" class="form-control" placeholder="Username" autofocus><br>
+                    <input type="text" name="email" class="form-control" placeholder="Email" autofocus><br>
+                    <input type="password" name="password" class="form-control" placeholder="Password"><br>
+                    <textarea id="textArea" name="alamat" class="form-control" rows="3" placeholder="Alamat"></textarea><br>
+                </div>
+                <button class="btn btn-lg btn-primary btn-block" type="submit">Daftar</button>
+            </form>
+        </div>
+    </div>
+</body>
 </html>
