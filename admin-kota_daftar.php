@@ -13,7 +13,7 @@ $sql = 'select * from kota order by nama asc' ;
     <meta name="author" content="">
     <link rel="shortcut icon" href="../../assets/ico/favicon.ico">
 
-    <title>Signin Template for Bootstrap</title>
+    <title>Daftar Kota yg ada di Indonesia</title>
 
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
