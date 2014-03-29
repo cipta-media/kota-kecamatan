@@ -22,6 +22,9 @@ $sql = 'select * from pengguna order by email asc' ;
     <link href="css/signin.css" rel="stylesheet">
   	<link href="css/font-awesome.min.css" rel="stylesheet">
 
+     <!-- Custom styles for this template -->
+
+
     <!-- Just for debugging purposes. Don't actually copy this line! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
 
@@ -51,13 +54,14 @@ $sql = 'select * from pengguna order by email asc' ;
 foreach($koneksidb->query($sql) as $baris) {
 ?>
                 <tr>
-                  <td></td>
+                  <td><!-- loop --></td>
                   <td><?php echo $baris['username'] ?></td>
                   <td><?php echo $baris['email'] ?></td>
                   <td><?php echo $baris['nama'] ?></td>
                   <td><?php echo $baris['aktif'] ?></td>
-                  <td><a href="admin-user_ubah.php?uid=<?php print $baris['id']; ?>"><i class="fa fa-pencil"></i></a></td>
-
+                  <td><a href="admin-user_ubah.php?uid=<?php print $baris['id']; ?>"><i class="fa fa-pencil"></i></a>
+                  <a href="admin-user_hapus.php?uid=<?php print $baris['id']; ?>"><i class="fa fa-eraser"></i></a>
+                  <a href="admin-user_detail.php?uid=<?php print $baris['id']; ?>"><i class="fa fa-list-alt"></i></a></td>
                 </tr>
 <?php
 }
