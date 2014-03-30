@@ -21,7 +21,7 @@ $sql = 'select * from pengguna order by email asc' ;
     <!-- Custom styles for this template -->
     <link href="css/signin.css" rel="stylesheet">
   	<link href="css/font-awesome.min.css" rel="stylesheet">
-
+    <link rel="stylesheet" type="text/css" href="css/simptip-mini.css" media="screen,projection" /> 
      <!-- Custom styles for this template -->
 
 
@@ -59,9 +59,9 @@ foreach($koneksidb->query($sql) as $baris) {
                   <td><?php echo $baris['email'] ?></td>
                   <td><?php echo $baris['nama'] ?></td>
                   <td><?php echo $baris['aktif'] ?></td>
-                  <td><a href="admin-user_ubah.php?uid=<?php print $baris['id']; ?>"><i class="fa fa-pencil"></i></a>
-                  <a href="admin-user_hapus.php?uid=<?php print $baris['id']; ?>"><i class="fa fa-eraser"></i></a>
-                  <a href="admin-user_detail.php?uid=<?php print $baris['id']; ?>"><i class="fa fa-list-alt"></i></a></td>
+                  <td><a href="admin-user_ubah.php?uid=<?php print $baris['id']; ?>" class="simptip-position-top" data-tooltip="Edit data"><i class="fa fa-pencil"></i></a>
+                  <a href="admin-user_hapus.php?uid=<?php print $baris['id']; ?>" class="simptip-position-top" data-tooltip="Hapus data"><i class="fa fa-eraser"></i></a>
+                  <a title="Default tooltip" rel='tooltip' href="admin-user_detail.php?uid=<?php print $baris['id']; ?>" class="simptip-position-top" data-tooltip="Detail data"><i class="fa fa-list-alt"></i></a></td>
                 </tr>
 <?php
 }
