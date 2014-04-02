@@ -13,7 +13,7 @@ $sql = 'select * from kota order by nama asc' ;
     <meta name="author" content="">
     <link rel="shortcut icon" href="../../assets/ico/favicon.ico">
 
-    <title>Daftar Kota yg ada di Indonesia</title>
+    <title>Daftar Nama Kota di Indonesia</title>
 
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -53,8 +53,10 @@ foreach($koneksidb->query($sql) as $baris) {
                   <td><?php echo $baris['nama'] ?></td>
                   <td><?php echo $baris['dibuat_pada'] ?></td>
                   <td><?php echo $baris['diubah_pada'] ?></td>
+                  <td><a href="admin-kota_buat.php?"><i class="fa fa-plus"></i></a></td>
                   <td><a href="admin-kota_ubah.php?uid=<?php print $baris['id']; ?>"><i class="fa fa-pencil"></i></a></td>
-                </tr>
+                  <td><a href="admin-kota_hapus.php?uid=<?php print $baris['id']; ?>" onClick="return confirm('Apakah anda yakin akan menghapus data ini?')"><i class="fa fa-times"></i></a></td>
+		</tr>
 <?php
 }
 ?>
