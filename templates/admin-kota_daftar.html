@@ -33,7 +33,7 @@
             <table class="table table-striped">
               <thead>
                 <tr>
-                  <th>#</th>
+                  <th>No</th>
                   <th>Nama Kota</th>
                   <th>Dibuat pada</th>
                     <th>Diubah pada</th>
@@ -47,8 +47,8 @@
                   <td>{$datakota[kota].dibuat_pada}</td>
                   <td>{$datakota[kota].diubah_pada}</td>
                   <td><a href="admin-kota_buat.php?"><i class="fa fa-plus"></i></a></td>
-                  <td><a href="admin-kota_ubah.php?uid={$datakota[kota].id}"><i class="fa fa-pencil"></i></a></td>
-                  <td><a href="admin-kota_hapus.php?uid={$datakota[kota].id}" onClick="return confirm('Apakah anda yakin akan menghapus data ini?')"><i class="fa fa-times"></i></a></td>
+                  <td><a href="admin-kota_ubah.php?kotaid={$datakota[kota].id}"><i class="fa fa-pencil"></i></a></td>
+                  <td><a href="admin-kota_hapus.php?kotaid={$datakota[kota].id}" onClick="return confirm('Apakah anda yakin akan menghapus data ini?')"><i class="fa fa-times"></i></a></td>
                 </tr>
               {/section}
             </tbody>
