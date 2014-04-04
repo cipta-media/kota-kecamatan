@@ -7,12 +7,12 @@ if ($_POST) {
     SET
         nama = '{$_POST['nama']}',
         diubah_pada = NOW()
-    WHERE id = '{$_POST['uid']}'";
+    WHERE id = '{$_POST['kotaid']}'";
     $koneksidb->exec($updatesql);
     header('Location: admin-kota_daftar.php');
 }
 
-$sql = 'select * from kota where id = ' . $_GET['uid'];
+$sql = 'select * from kota where id = ' . $_GET['kotaid'];
 foreach ($koneksidb->query($sql) as $baris) {
       $editkota[] = $baris;
 }
