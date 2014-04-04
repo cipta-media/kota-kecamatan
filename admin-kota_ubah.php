@@ -14,9 +14,10 @@ if ($_POST) {
 
 $sql = 'select * from kota where id = ' . $_GET['uid'];
 foreach ($koneksidb->query($sql) as $baris) {
-    $diubah_pada = $baris['diubah_pada'];
-    $nama = $baris['nama'];
+      $editkota[] = $baris;
 }
 
+$smarty->assign('editkota', $editkota);
 $smarty->display('admin-kota_ubah.html');
+
 ?>
