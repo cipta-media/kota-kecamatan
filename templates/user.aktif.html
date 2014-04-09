@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -6,26 +7,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="shortcut icon" href="../../assets/ico/favicon.ico">
 
-    <title>Daftar</title>
+    <title>Akun aktif</title>
 
+    <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
+    <style>
+    body {
+      padding-top: 20px;
+      padding-bottom: 20px;
+    }
 
-    <link href="css/signin.css" rel="stylesheet">
-
-    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
+    .navbar {
+      margin-bottom: 20px;
+    }
+    </style>
   </head>
-<body>
-<div class="col-lg-6">
-{$berhasil_aktif}
-<p>klik </p>
-<a href="login.html">ini</a>
-<p>untuk login</p>
-</div>
-</body>
+
+  <body>
+
+    <div class="container">
+
+      <!-- Main component for a primary marketing message or call to action -->
+      <div class="jumbotron">
+        <h1>Akun telah aktif</h1>
+        <p>{$berhasil_aktif}</p>
+        <p>
+          <a class="btn btn-lg btn-primary" href="login.php" role="button">Login Sekarang &raquo;</a>
+        </p>
+      </div>
+
+    </div> <!-- /container -->
+
+
+  </body>
 </html>
