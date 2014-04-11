@@ -2,13 +2,12 @@
 require_once('konfigurasi.php');
 
 $sql = 'select * from pengguna order by email asc' ;
-$baris = array();
+
+$datauser = array();
 foreach($koneksidb->query($sql) as $baris) {
-    $baris[] = $baris;
+    $datauser[] = $baris;
 }
 
-
-foreach($koneksidb->query($sql) as $baris) {
-$smarty->assign('user', $baris);
+$smarty->assign('datauser', $datauser);
 
 $smarty->display('admin-user_daftar.html');
