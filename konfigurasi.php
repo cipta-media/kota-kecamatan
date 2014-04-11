@@ -2,8 +2,9 @@
 
 $host = 'localhost';
 $userdb = 'root';
-$passdb = 'syeikhanugrah';
+$passdb = '';
 $dbname = 'kota-kecamatan';
+$url = '';
 
 $koneksidb = new PDO("mysql:host=$host;dbname=$dbname", $userdb, $passdb);
 

@@ -3,7 +3,6 @@
 require_once('konfigurasi.php');
 
 $email = $_GET['email'];
-var_dump($email);
 
 
 $query = "UPDATE pengguna 
