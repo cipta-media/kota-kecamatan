@@ -41,19 +41,20 @@
                             <th>Aktif</th>
                             <th>Aksi</th>
                          </tr>
-                    </thead>]
+                    </thead>
                     <tbody>
+                     {section name=user loop=$datauser}
                             <tr>
-                                <td><!-- loop --></td>
                                 <td>{$smarty.section.user.iteration}</td>
-                                <td>{$baris['username'].username}</td>
-                                <td>{$baris['email'].email}</td>
-                                <td>{$baris['nama'].nama}</td>
-                                <td>{$baris['aktif'].aktif}</td>
+                                <td>{$datauser[user].username}</td>
+                                <td>{$datauser[user].email}</td>
+                                <td>{$datauser[user].nama}</td>
+                                <td>{$datauser[user].aktif}</td>
                                 <td><a href="admin-user_ubah.php?uid=<?php print $baris['id']; ?>" class="simptip-position-top" data-tooltip="Edit data"><i class="fa fa-pencil"></i></a>
                                 <a href="admin-user_hapus.php?uid=<?php print $baris['id']; ?>" class="simptip-position-top" data-tooltip="Hapus data"><i class="fa fa-eraser"></i></a>
                                 <a title="Default tooltip" rel='tooltip' href="admin-user_detail.php?uid=<?php print $baris['id']; ?>" class="simptip-position-top" data-tooltip="Detail data"><i class="fa fa-list-alt"></i></a></td>
                             </tr>
+                            {/section}
                     </tbody>
               </table>
           </div>
