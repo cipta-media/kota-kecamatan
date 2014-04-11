@@ -1,39 +1,46 @@
-<html> <title></title>
-    <link href="../css/style.css" rel="stylesheet">
-    <link href="../css/stylesheet.css" rel="stylesheet">
-    <style>
-        body { 
-          background: url(../images/1.jpg) no-repeat center center fixed; 
-          -webkit-background-size: cover;
-          -moz-background-size: cover;
-          -o-background-size: cover;
-          background-size: cover;
-        }
+<html> 
+    <title>login</title>
+    <head>       
+       
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/signin.css" rel="stylesheet">
+    
+    
+  <style>
+      body {
+        background: url("images/1.jpg") no-repeat center center fixed;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+        padding-top: 100px;
+       }
+       .well {
+          background-color: rgba(245, 245, 245, 0.4);
+          
+       }
+
     </style>
-    <body  style="">
-    <div class="login-container">
-        <div class="login-header bordered">
-            <h4>Masuk</h4>
+    </head>
+        <body>
+        <div class="container">
+          <div style="width: 350px; margin: 0 auto;">
+          <div class="well">
+          <form class="form-horizontal" method="post" action="login.php">
+                <legend align="center">Masuk</legend>
+                <div>
+                    
+                    <input type="text" name="username" class="form-control" placeholder="Username"><br>
+                    <input type="password" name="password" class="form-control" placeholder="Password"><br>
+                </div>
+                <button class="btn btn-lg btn-default" type="submit">Masuk</button>
+          </form>
+          {if $message != ""}
+          <div class="alert alert-danger" >
+            {$message}
+          </div>
+          {/if}
         </div>
-        <hr>
-        <form>
-            <div class="login-field">
-                <label for="username">Username</label>
-                <input type="text" name="username" id="username" placeholder="Username">
-                <i class="icon-user"></i>
-            </div>
-            <div class="login-field">
-                <label for="password">Password</label>
-                <input type="password" name="password" id="password" placeholder="Password">
-                <i class="icon-lock"></i>
-            </div>
-            <div class="login-button clearfix">
-                <button type="submit" class="pull-right btn btn-large blue">Masuk</button>
-            </div>
-            <div class="forgot-password">
-                <a href="#" role="button" data-toggle="modal">Lupa password?</a>
-            </div>
-        </form>
-    </div>
+      </div>
 </body>
 </html>

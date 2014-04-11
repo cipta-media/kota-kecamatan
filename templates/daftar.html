@@ -37,20 +37,21 @@
 	</style>
   </head>
 <body>
-    <div class="col-lg-6">
+    <div style="width: 500px; margin: 0 auto;">
         <div class="well">
             <form class="form-horizontal" method="post" action="daftar.php">
                 <legend align="center">Daftar</legend>
                 <div>
                     <input type="text" name="nama" class="form-control" placeholder="Nama" autofocus><br>
-                    <input type="text" name="username" class="form-control" placeholder="Username" autofocus><br>
-                    <input type="text" name="email" class="form-control" placeholder="Email" autofocus><br>
+                    <input type="text" name="username" class="form-control" placeholder="Username"><br>
+                    <input type="email" name="email" class="form-control" placeholder="Email"><br>
                     <input type="password" name="password" class="form-control" placeholder="Password"><br>
                     <textarea id="textArea" name="alamat" class="form-control" rows="3" placeholder="Alamat"></textarea><br>
                 </div>
-                <button class="btn btn-lg btn-primary btn-block" type="submit">Daftar</button>
+                <button class="btn btn-lg btn-primary" type="submit">Daftar</button>
+                <a href="login.php" class="btn btn-lg btn-success">Masuk</a>
             </form>
-        </div>
+        </div>    
     </div>
 </body>
 </html>
