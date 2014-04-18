@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -8,50 +9,71 @@
     <meta name="author" content="">
     <link rel="shortcut icon" href="../../assets/ico/favicon.ico">
 
-    <title>Daftar</title>
+    <title>Kota Kecamatan - Proyek percobaan Web Development</title>
 
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Custom styles for this template -->
-    <link href="css/signin.css" rel="stylesheet">
-    <!-- Just for debugging purposes. Don't actually copy this line! -->
-    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
-
-    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-  	<style>
-		body {
-		  background: url("images/1.jpg") no-repeat center center fixed;
-		  -webkit-background-size: cover;
-		  -moz-background-size: cover;
-		  -o-background-size: cover;
-		  background-size: cover;
-		 }
-		 .well {
-		    background-color: rgba(245, 245, 245, 0.4);
-		 }
-	</style>
+    <style>
+      /* Move down content because we have a fixed navbar that is 50px tall */
+      body {
+        padding-top: 50px;
+        padding-bottom: 20px;
+      }
+    </style>
   </head>
-<body>
-    <div style="width: 500px; margin: 0 auto;">
-        <div class="well">
+
+  <body>
+
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Kota Kecamatan</a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <form class="navbar-form navbar-right" role="form">
+            <a href="login.php" class="btn btn-default">Masuk</a>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main jumbotron for a primary marketing message or call to action -->
+    <div class="jumbotron">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6">
+            <h1>Kota Kecamatan</h1>
+            <p>Daftar Kota dan Kecamatan di Indonesia. Proyek percobaan web development menggunakan data kota dan kecataman di Indonesia.</p>
+          </div>
+          <div class="col-md-6">
             <form class="form-horizontal" method="post" action="daftar.php">
-                <legend align="center">Daftar</legend>
                 <div>
                     <input type="text" name="nama" class="form-control" placeholder="Nama" autofocus><br>
                     <input type="text" name="username" class="form-control" placeholder="Username"><br>
                     <input type="email" name="email" class="form-control" placeholder="Email"><br>
                     <input type="password" name="password" class="form-control" placeholder="Password"><br>
-                    <textarea id="textArea" name="alamat" class="form-control" rows="3" placeholder="Alamat"></textarea><br>
-                </div>
-                <button class="btn btn-lg btn-primary" type="submit">Daftar</button>
-                <a href="login.php" class="btn btn-lg btn-success">Masuk</a>
+                    <textarea id="textArea" name="alamat" class="form-control" rows="3" placeholder="Alamat"></textarea>
+                </div><br>
+                <button class="btn btn-lg btn-success" type="submit">Daftar untuk Kota Kecamatan</button><br>
             </form>
-        </div>    
+          </div>
+        </div>
+      </div>
     </div>
-</body>
+
+    <div class="container">
+      <!-- Example row of columns -->
+      <hr>
+
+      <footer>
+        <p>&copy; Kota Kecamatan 2014</p>
+      </footer>
+    </div> <!-- /container -->
+  </body>
 </html>
