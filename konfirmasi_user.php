@@ -4,6 +4,7 @@ require_once('konfigurasi.php');
 
 $email = $_GET['email'];
 
+
 $query = "UPDATE pengguna 
 		  SET 
 		  	aktif = '1'

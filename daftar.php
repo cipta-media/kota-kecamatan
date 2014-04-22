@@ -4,22 +4,76 @@ require_once('konfigurasi.php');
 
 if ($_POST) {
     if ($_POST['email'] != '') {
-        $ip = $_SERVER["REMOTE_ADDR"];
+        
+        $username = $_POST['username'];
+        $sth = $koneksidb->prepare("SELECT * FROM pengguna WHERE username='$username'");
+        $sth->execute();
+        $baris = $sth->rowCount(); //untuk mendapatkan jumlah baris hasil query
 
-        $query = "INSERT INTO `pengguna` (`nama`, `username`, `password`, `email`, `alamat`, `remote_ip`) VALUES ('{$_POST['nama']}', '{$_POST['username']}', '{$_POST['password']}', '{$_POST['email']}', '{$_POST['alamat']}', '$ip')";
-        $koneksidb->exec($query);
+        if ($baris > 0) { 
+            
+            /*
+            *   jika jumlah baris yang username nya dari $_POST lebih
+            *   tampilkan pesan bahwa username telah digunakan/ada
+            *
+            */
+            echo "username sudah digunakan silahkan coba yang lain."; 
+            exit;
 
-        $_SESSION['info_berhasildaftar'] = "Registrasi berhasil dilakukan. Email konfirmasi telah dikirim kepada {$_POST['email']}.\nSilahkan konfirmasi email anda";
+        } else {
 
-        $to = "{$_POST['email']}";
-        $subject = "Lengkapi pendaftaran anda! ";
-        $message = "";
-        $from = "kotakecamatan@gmail.com";
-        $headers = "From:" . $from;
-        mail($to, $subject, $message, $headers);
+            $ip = $_SERVER["REMOTE_ADDR"];
+            $email = $_POST['email'];
+            $kode = md5(rand());
+            $query = "INSERT INTO `pengguna` (`nama`, `username`, `password`, `email`, `alamat`, `remote_ip`, `kode_konfirmasi`) VALUES ('{$_POST['nama']}', '{$_POST['username']}', '{$_POST['password']}', '$email', '{$_POST['alamat']}', '$ip', '$kode')";
+            $koneksidb->exec($query);
 
-        header('Location: daftar.berhasil.php');
-        exit;
+            $body             = "<!DOCTYPE html>
+                                    <html>
+                                    <head>
+                                        <title>tes</title>
+                                    </head>
+                                    <body>
+                                        <div class='container'>
+                        
+                                          <div class='jumbotron'>
+                                            <h1>Aktifkan akun anda!</h1>
+                                            <p class='lead'>Tinggal satu langkah lagi anda menggunakan akun ini!</p>
+                                            <p><a class='btn btn-lg btn-success' href='$url/konfirmasi_user.php?email=$email' role='button'>Aktifkan Sekarang!</a></p>
+                                          </div>
+                        
+                                          <div class='footer'>
+                                            <p>&copy; Kota Kecamatan 2014</p>
+                                          </div>
+                        
+                                        </div> <!-- /container -->
+                                      </body>
+                                    </html>";
+
+            $mail->IsSMTP(); 
+            $mail->Host       = "localhost";
+            $mail->SMTPAuth   = true;                  
+            $mail->SMTPSecure = "tls";                 
+            $mail->Host       = "smtp.gmail.com";      
+            $mail->Port       = 587;                   
+            $mail->Username   = "kotakecamatan@gmail.com";
+            $mail->Password   = "kota-kecamatan";
+
+            $mail->SetFrom('kotakecamatan', 'Kota Kecamatan');
+
+            $mail->Subject    = "Aktifkan akun anda!";
+
+            $mail->MsgHTML($body);
+
+            $address = "$email";
+            $mail->AddAddress($address, "");
+            $mail->Send();
+
+            $_SESSION['info_berhasildaftar'] = "Registrasi berhasil dilakukan. Email konfirmasi telah dikirim kepada $email.\nSilahkan konfirmasi email anda";
+
+            header('Location: daftar.berhasil.php');
+            exit;
+        }   
     }
 }
 
