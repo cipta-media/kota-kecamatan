@@ -8,7 +8,7 @@ function userTerdaftar($username, $password) {
     // jika ada dan sama, kembalikan nilai true
     // jika tidak ada atau tidak sama, kembalikan nilai false
 
-    $query = "SELECT COUNT(*) FROM pengguna WHERE username = '$username' AND password = '$password'";
+    $query = "SELECT COUNT(*) FROM pengguna WHERE username = '$username' AND password = '$password' AND aktif";
     $statement = $koneksidb->query($query);
     $hasil = $statement->fetchAll();
 
@@ -29,7 +29,7 @@ if ( $_POST ) {
         header("Location: admin.php");
     } else {
         // tampilkan pesan bahwa user tidak ada atau username-password tidak cocok!
-        $message = "Username atau password tidak terdaftar";
+        $message = "Username atau password salah / belum aktif";
     }
 }
 
