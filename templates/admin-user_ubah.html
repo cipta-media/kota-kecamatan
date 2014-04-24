@@ -4,47 +4,42 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="shortcut icon" href="../../assets/ico/favicon.png">
 
     <title>Edit Data</title>
 
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Custom styles for this template -->
     <link href="css/signin.css" rel="stylesheet">
 
-    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-      <script src="../../assets/js/html5shiv.js"></script>
-      <script src="../../assets/js/respond.min.js"></script>
-    <![endif]-->
   </head>
 
   <body>
 
     <div class="container">
       {section name=user loop=$edituser}
-      <form class="form-signin" method="POST" action="admin-user_ubah.php">
-        <input type="hidden" name="uid" value="{$edituser[user].id}">
-        <h2 class="form-signin-heading">Edit User</h2>
-
-	   <input type="text" name="nama" class="form-control" placeholder="Nama" autofocus value="{$edituser[user].nama}"><br>
-     <input type="text" name="username" class="form-control" placeholder="Username" autofocus value="{$edituser[user].username}"><br>
-     <input type="password" name="password" class="form-control" placeholder="Password" autofocus value="{$edituser[user].password}"><br>
-	   <input type="text" name="email" class="form-control" placeholder="Email" autofocus value="{$edituser[user].email}"><br>
-     <input type="text" name="alamat" class="form-control" placeholder="Alamat" autofocus value="{$edituser[user].alamat}"><br>
-     <input type="text" name="remote_ip" class="form-control" placeholder="Remote IP" autofocus value="{$edituser[user].remote_ip}"><br>
-     <input type="text" name="kode_konfirmasi" class="form-control" placeholder="Kode Konfirmasi" autofocus value="{$edituser[user].kode_konfirmasi}"><br>
-     <button class="btn btn-lg btn-primary btn-block" type="submit">Simpan</button>
-      </form>
+          <form action="admin-user_ubah.php" method="POST">
+            <div class="panel panel-info" style="width:800px; margin:0 auto;">
+              <div class="panel-heading">
+                <h3 class="panel-title">Data {$edituser[user].nama}</h3>
+              </div>
+              <div class="panel-body">
+                <input type="hidden" name="uid" value="{$edituser[user].id}">
+                <label for="nama">Nama</label>
+                <input type="text" name="nama" class="form-control" placeholder="Nama" autofocus value="{$edituser[user].nama}"><br>
+                <label for="username">Username</label>
+                <input type="text" name="username" class="form-control" placeholder="Username" value="{$edituser[user].username}"><br>
+                <label for="password">Password</label>
+                <input type="text" name="password" class="form-control" placeholder="Password" value="{$edituser[user].password}"><br>
+                <label for="email">Email</label>
+                <input type="text" name="email" class="form-control" placeholder="Email" value="{$edituser[user].email}"><br>
+                <label for="alamat">Alamat</label>
+                <input type="text" name="alamat" class="form-control" placeholder="Alamat"  value="{$edituser[user].alamat}"><br>
+                <button class="btn btn-primary " type="submit">Simpan</button>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a href="admin-user_daftar.php">kembali</a>
+            </div>
+          </form>
       {/section}
-  </div> <!-- /container -->
+    </div> <!-- /container -->
 
-
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-  </body>
+</body>
 </html>

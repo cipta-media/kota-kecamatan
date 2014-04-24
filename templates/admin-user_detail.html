@@ -1,62 +1,61 @@
-<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="shortcut icon" href="../../assets/ico/favicon.png">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="">
+<meta name="author" content="">
+<link rel="shortcut icon" href="../../assets/ico/favicon.png">
 
-    <title>Detail</title>
+<title>Edit Data</title>
 
-    <!-- Bootstrap core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+<!-- Bootstrap core CSS -->
+<link href="css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Custom styles for this template -->
-    <link href="css/signin.css" rel="stylesheet">
+<!-- Custom styles for this template -->
+<link href="css/signin.css" rel="stylesheet">
+<link href="css/font-awesome.min.css" rel="stylesheet">
 
-    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-      <script src="../../assets/js/html5shiv.js"></script>
-      <script src="../../assets/js/respond.min.js"></script>
-    <![endif]-->
-  </head>
+<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+<script src="../../assets/js/html5shiv.js"></script>
+<script src="../../assets/js/respond.min.js"></script>
+<![endif]-->
+</head>
 
-  <body>
-    <div class="table-responsive">
-      <table class="table table-striped">
-        <thead>
-          <tr>
-            <th>No</th>
-            <th>Nama</th>
-            <th>Username</th>
-            <th>password</th>
-            <th>Email</th>
-            <th>Alamat</th>
-            <th>Remote IP</th>
-            <th>Kode Konfirmasi</th>
-          </tr>
-        </thead>
-        <tbody>
-          {section name=user loop=$datauser}
-          <tr>
-            <td>{$smarty.section.user.iteration}</td>
-            <td>{$datauser[user].nama}</td>
-            <td>{$datauser[user].username}</td>
-            <td>{$datauser[user].password}</td>
-            <td>{$datauser[user].email}</td>
-            <td>{$datauser[user].alamat}</td>
-            <td>{$datauser[user].remote_ip}</td>
-            <td>{$datauser[user].kode_konfirmasi}</td>
-          </tr>
-          {/section}
-        </tbody>
-      </table>
-    </div>
+<body>
+  <div class="container">
+    {section name=user loop=$datauser}
+      <div class="panel panel-info" style="width:800px; margin:0 auto;">
+        <div class="panel-heading">
+          <h3 class="panel-title">Data {$datauser[user].nama}</h3>
+        </div>
+        <div class="panel-body">
+          <input type="hidden" name="uid" value="{$datauser[user].id}">
+          <label for="text">Nama</label>
+          <input type="text" id="disabledInput" name="nama" class="form-control" placeholder="{$datauser[user].nama}" disabled><br>
+          <label for="text">Username</label>
+          <input type="text" id="disabledInput" name="username" class="form-control" placeholder="{$datauser[user].username}" disabled><br>
+          <label for="text">Password</label>
+          <input type="password" id="disabledInput" name="password" class="form-control" placeholder="{$datauser[user].password}" disabled><br>
+          <label for="text">Email</label>
+          <input type="text" id="disabledInput" name="email" class="form-control" placeholder="{$datauser[user].email}" disabled><br>
+          <label for="text">Alamat</label>
+          <input type="text" id="disabledInput" name="alamat" class="form-control" placeholder="{$datauser[user].alamat}" disabled><br>
+          <label for="text">Aktif</label>
+          <input type="text" id="disabledInput" name="aktif" class="form-control" placeholder="{$datauser[user].aktif}" disabled><br>
+          <label for="text">Remote IP</label>
+          <input type="text" id="disabledInput" name="remote_ip" class="form-control" placeholder="{$datauser[user].remote_ip}" disabled><br>
+          <label for="text">Kode Konfirmasi</label>
+          <input type="text" id="disabledInput" name="kode_konfirmasi" class="form-control" placeholder="{$datauser[user].kode_konfirmasi}" disabled><br>
+          <a href="admin-user_daftar.php">kembali</a>
+        </div>
+      </div>
+    {/section}
+  </div> <!-- /container -->
 
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-  </body>
+</body>
 </html>

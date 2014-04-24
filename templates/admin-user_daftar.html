@@ -176,7 +176,7 @@
             <table class="table table-striped">
               <thead>
                 <tr>
-                  <th>#</th>
+                  <th>No</th>
                   <th>Username</th>
                   <th>Email</th>
                   <th>Nama</th>
@@ -194,7 +194,7 @@
                   <td>{$datauser[user].aktif}</td>
                   <td>
                     <a href="admin-user_ubah.php?uid={$datauser[user].id}" class="mitooltip" title="Edit data"><i class="fa fa-pencil"></i></a>
-                    <a href="admin-user_hapus.php?uid={$datauser[user].id}" class="mitooltip" title="Hapus data"><i class="fa fa-eraser"></i></a>
+                    <a href="admin-user_hapus.php?uid={$datauser[user].id}" onClick="return confirm('Apakah anda yakin akan menghapus data ini?')" class="mitooltip" title="Hapus data"><i class="fa fa-eraser"></i></a>
                     <a href="admin-user_detail.php?uid={$datauser[user].id}" class="mitooltip" title="Detail data"><i class="fa fa-list-alt"></i></a>
                   </td>
                 </tr>
@@ -205,8 +205,6 @@
         </div>
       </div>
     </div>
-
-
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
