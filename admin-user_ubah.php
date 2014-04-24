@@ -13,12 +13,10 @@ if ($_POST) {
     $updatesql = "UPDATE pengguna
     SET
         nama = '{$_POST['nama']}',
-        username = '{$_POST['username']}'
-        password = '{$_POST['password']}'
-        email = '{$_POST['email']}'
+        username = '{$_POST['username']}',
+        password = '{$_POST['password']}',
+        email = '{$_POST['email']}',
         alamat = '{$_POST['alamat']}'
-        remote_ip = '{$_POST['remote_ip']}'
-        kode_konfirmasi = '{$_POST['kode_konfirmasi']}'
 
     WHERE id = '{$_POST['uid']}'";
     $koneksidb->exec($updatesql);
@@ -31,4 +29,5 @@ foreach ($koneksidb->query($sql) as $baris) {
 }
 
 $smarty->assign('edituser', $edituser);
+
 $smarty->display('admin-user_ubah.html');
