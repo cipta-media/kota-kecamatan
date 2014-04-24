@@ -8,7 +8,7 @@ function userTerdaftar($username, $password) {
     // jika ada dan sama, kembalikan nilai true
     // jika tidak ada atau tidak sama, kembalikan nilai false
 
-    $query = "SELECT COUNT(*) FROM pengguna WHERE username = '$username' AND password = '$password' AND aktif";
+    $query = "SELECT COUNT(*) FROM pengguna WHERE username = '$username' AND password = '$password' AND aktif = 1";
     $statement = $koneksidb->query($query);
     $hasil = $statement->fetchAll();
 
@@ -20,8 +20,7 @@ function userTerdaftar($username, $password) {
 
 if ( $_POST ) {
     $username = $_POST['username'];
-    $userpass = $_POST['password'];
-
+    $userpass = $_POST['password'];	
     $registered = userTerdaftar( $username, $userpass );
     if ( $registered ) {
         $_SESSION['sedang_login'] = 1;
