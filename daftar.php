@@ -2,6 +2,8 @@
 
 require_once('konfigurasi.php');
 
+$message = '';
+
 if ($_POST) {
     if ($_POST['email'] != '') {
         
@@ -31,15 +33,15 @@ if ($_POST) {
             $body             = "<!DOCTYPE html>
                                     <html>
                                     <head>
-                                        <title>tes</title>
+                                        <title>Aktifkan akun anda!</title>
                                     </head>
                                     <body>
                                         <div class='container'>
                         
                                           <div class='jumbotron'>
                                             <h1>Aktifkan akun anda!</h1>
-                                            <p class='lead'>Tinggal satu langkah lagi anda menggunakan akun ini!</p>
-                                            <p><a class='btn btn-lg btn-success' href='$url/konfirmasi_user.php?email=$email' role='button'>Aktifkan Sekarang!</a></p>
+                                            <p class='lead'>Hi $username, Tinggal satu langkah lagi anda melengkapi pendaftaran ini.!</p>
+                                            <p><a class='btn btn-lg btn-success' href='$url/konfirmasi_user.php?kode=$kode' role='button'>Aktifkan Sekarang!</a></p>
                                           </div>
                         
                                           <div class='footer'>
@@ -76,5 +78,6 @@ if ($_POST) {
         }   
     }
 }
+
 
 header('Location: index.php');

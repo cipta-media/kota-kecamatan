@@ -1,18 +1,19 @@
 <?php 
 
-require_once('konfigurasi.php');
+	require_once('konfigurasi.php');
 
-$email = $_GET['email'];
+	$kode = $_GET['kode'];
 
+	$query = "UPDATE pengguna 
+			  SET 
+			  	aktif = '1'
+			  WHERE kode_konfirmasi = '" . $kode . "'";
+			  $koneksidb->exec($query);
 
-$query = "UPDATE pengguna 
-		  SET 
-		  	aktif = '1'
-		  WHERE email = '" . $email . "'";
-		  $koneksidb->exec($query);
+	$_SESSION['info_sukseskonfirmasi'] = "Akun anda berhasil di aktifkan.";
 
-$_SESSION['info_sukseskonfirmasi'] = "Akun anda berhasil di aktifkan.";
-header('Location: konfirmasi.sukses.php');
-exit;
+	header('Location: konfirmasi.sukses.php');
+
+	exit;
 
 ?>
