@@ -2,12 +2,11 @@
 
     require_once('konfigurasi.php');
 
-    if ($_POST) {
+    if ($_POST) { 
 
-    $katapencarian = $_POST['katapencarian'];
+    $katapencarian = $_POST['katapencarian']; //memasukkan kata yg akan di post ke dalam variable $katapencarian
 
-    $sql = "SELECT * FROM kota WHERE nama='$katapencarian' order by nama";
-    //$sql = "select * from kota where nama='Bandung' order by nama asc";
+    $sql = "SELECT * FROM kota WHERE nama like '%$katapencarian%' order by nama"; //mengambil nilai yang dicari pada variable kata pencarian
 
     $datakota = array();
         foreach($koneksidb->query($sql) as $baris) {
